@@ -1,0 +1,38 @@
+[
+  {
+    "id": "sundarban-wildlife-2026",
+    "title": "Sundarbans Deep Creek Expedition",
+    "category": "Wildlife & River",
+    "client": "National Geographic Explorer Fellows",
+    "date": "2026-02",
+    "image": "assets/images/destinations/sundarbans.jpg",
+    "description": "7-day permit-cleared motor launch charter navigating Katka, Kachikhali and Harbaria sanctuaries with 4K camera gear."
+  },
+  {
+    "id": "bagerhat-heritage-conservation",
+    "title": "Sultanate Mosque Architecture Survey",
+    "category": "Heritage",
+    "client": "Dhaka University Faculty of Architecture",
+    "date": "2026-01",
+    "image": "assets/images/destinations/shat-gombuj-mosque.jpg",
+    "description": "3-day high-resolution photographic and architectural documentation of Sixty Dome Mosque, Ronvijoypur, and Singar Mosque."
+  },
+  {
+    "id": "srimangal-monsoon-tea",
+    "title": "Sylhet & Srimangal Rain Trail",
+    "category": "Eco & Trekking",
+    "client": "Dhaka Nature Photographers Guild",
+    "date": "2025-08",
+    "image": "assets/images/destinations/srimangal.jpg",
+    "description": "5-day cycling and trekking tour covering Baikka Beel wetland birding and Lawachara rainforest canopy trails."
+  },
+  {
+    "id": "inani-beach-retreat",
+    "title": "Southern Coastline Corporate Offsite",
+    "category": "Beach & Island",
+    "client": "Square Group Executive Delegation",
+    "date": "2025-11",
+    "image": "assets/images/destinations/inani-beach.jpg",
+    "description": "Turnkey 40-person logistics with chartered coaches, beachfront villas, Marine Drive caravan, and Saint Martin catamaran."
+  }
+]

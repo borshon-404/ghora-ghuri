@@ -75,14 +75,16 @@
       <button role="tab" class="tab" data-tab="editor" aria-selected="true">Editor</button>
       <button role="tab" class="tab" data-tab="bookings" aria-selected="false">Booking requests</button>
       <button role="tab" class="tab" data-tab="overview" aria-selected="false">Coverage</button>
-      <button role="tab" class="tab" data-tab="settings" aria-selected="false">Settings</button>
+      <button role="tab" class="tab" data-tab="site-cms" aria-selected="false">Site &amp; Header / Footer</button>
+      <button role="tab" class="tab" data-tab="pages-cms" aria-selected="false">Pages Content</button>
+      <button role="tab" class="tab" data-tab="settings" aria-selected="false">Security &amp; Keys</button>
     </div>
 
     <div data-panel="editor">
       <div class="card card--pad" style="margin-bottom:1.2rem">
         <div class="row" style="gap:.8rem;align-items:flex-end;flex-wrap:wrap">
           <div class="field" style="min-width:190px;margin:0"><label for="js-collection">Collection</label>
-            <select id="js-collection"><option value="destinations">Destinations (142)</option><option value="packages">Tour Packages (14)</option><option value="blog">Journal &amp; Blog (6)</option></select></div>
+            <select id="js-collection"><option value="destinations">Destinations (142)</option><option value="packages">Tour Packages (14)</option><option value="blog">Journal &amp; Blog (6)</option><option value="portfolio">Featured Case Studies &amp; Portfolio (4)</option></select></div>
           <div class="field" style="flex:1;min-width:220px;margin:0"><label for="js-table-search">Filter</label>
             <input id="js-table-search" type="search" placeholder="name, division or district"></div>
           <button class="btn btn--primary btn--sm" id="js-new-btn" type="button">New record</button>
@@ -137,6 +139,81 @@
       </div>
     </div>
 
+    <!-- --------------------------------------- Global Site, Header, Footer & Portfolio CMS -->
+    <div data-panel="site-cms" hidden>
+      <div class="grid grid--2" style="margin-bottom:1.5rem">
+        <div class="card card--pad">
+          <h2 style="margin-top:0;font-size:1.3rem">Header &amp; Global Identity</h2>
+          <form id="js-site-cms-form">
+            <div class="field"><label for="sc-name">Site / Brand Name</label><input id="sc-name" name="site_name" type="text" required></div>
+            <div class="field"><label for="sc-tagline">Site Tagline / Subtitle</label><input id="sc-tagline" name="site_tagline" type="text"></div>
+            <div class="field"><label for="sc-founder">Founder / Director Name</label><input id="sc-founder" name="founder_name" type="text"></div>
+            <div class="field"><label for="sc-phone">Primary Contact Phone</label><input id="sc-phone" name="phone" type="text" required></div>
+            <div class="field"><label for="sc-email">Primary Contact Email</label><input id="sc-email" name="email" type="email" required></div>
+            <div class="field"><label for="sc-wa">WhatsApp Number (country code)</label><input id="sc-wa" name="whatsapp" type="text"></div>
+            <div class="field"><label for="sc-address">Office Address</label><input id="sc-address" name="address" type="text"></div>
+            <div class="field"><label for="sc-badge">License / Government Badge Text</label><input id="sc-badge" name="license_badge" type="text"></div>
+            
+            <h3 style="font-size:1.1rem;margin-top:1.2rem">Social Media Channels</h3>
+            <div class="field"><label for="sc-fb">Facebook URL</label><input id="sc-fb" name="social_facebook" type="url"></div>
+            <div class="field"><label for="sc-ig">Instagram URL</label><input id="sc-ig" name="social_instagram" type="url"></div>
+            <div class="field"><label for="sc-yt">YouTube URL</label><input id="sc-yt" name="social_youtube" type="url"></div>
+            
+            <h3 style="font-size:1.1rem;margin-top:1.2rem">Announcement Notice Bar</h3>
+            <div class="field"><label class="check"><input type="checkbox" id="sc-ann-active" name="announcement_active"> Enable Top Announcement Bar</label></div>
+            <div class="field"><label for="sc-ann-bar">Announcement Bar Text / Banner</label><input id="sc-ann-bar" name="announcement_bar" type="text" placeholder="e.g. Winter 2026 Sundarbans bookings now open!"></div>
+
+            <button class="btn btn--primary" type="submit" style="margin-top:.8rem">Save Global Site Settings</button>
+          </form>
+        </div>
+
+        <div class="card card--pad">
+          <h2 style="margin-top:0;font-size:1.3rem">Footer Details &amp; Copyright</h2>
+          <form id="js-footer-cms-form">
+            <div class="field"><label for="sc-footer-about">Footer About Description</label><textarea id="sc-footer-about" name="footer_about" rows="4"></textarea></div>
+            <div class="field"><label for="sc-copyright">Footer Copyright Notice</label><input id="sc-copyright" name="copyright_text" type="text"></div>
+            <div class="field"><label for="sc-ga">Google Analytics Measurement ID</label><input id="sc-ga" name="gaMeasurementId" type="text" placeholder="G-XXXXXXXXXX"></div>
+            
+            <button class="btn btn--primary" type="submit" style="margin-top:.8rem">Save Footer &amp; Analytics</button>
+          </form>
+
+          <hr style="margin-block:1.5rem;border:0;border-top:1px solid #eef2ef">
+          <h2 style="margin-top:0;font-size:1.3rem">Custom Image Uploader / Media Reference</h2>
+          <p class="small muted">Paste image URL or use existing high-resolution image paths from <code>assets/images/destinations/</code> or external CDN.</p>
+          <div class="field"><label for="sc-img-preview-in">Test Image URL</label><input id="sc-img-preview-in" type="text" placeholder="https://... or assets/images/..."></div>
+          <div id="js-img-preview-box" style="height:140px;background:#f5f7f5;border-radius:6px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px dashed #ccc">
+            <span class="small muted">Image preview will show here</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---------------------------------------------------- Pages Content CMS -->
+    <div data-panel="pages-cms" hidden>
+      <div class="card card--pad" style="margin-bottom:1.2rem">
+        <div class="row row--between" style="align-items:center">
+          <div>
+            <h2 style="margin:0;font-size:1.3rem">Edit Page Contents &amp; Hero Sections</h2>
+            <p class="small muted" style="margin:0">Manage text, hero banners, testimonials, about story, and contact page details.</p>
+          </div>
+          <div class="field" style="margin:0;min-width:200px">
+            <select id="js-page-select">
+              <option value="home">Homepage (Hero, Banner, Quotes)</option>
+              <option value="about">About Us (Mission, Founder, Story)</option>
+              <option value="contact">Contact Page (Office hours, Map)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card--pad" id="js-page-editor-container">
+        <form id="js-page-cms-form">
+          <div id="js-page-fields"></div>
+          <button class="btn btn--primary" type="submit" style="margin-top:1.2rem">Save &amp; Publish Page Changes</button>
+        </form>
+      </div>
+    </div>
+
     <div data-panel="settings" hidden>
       <div class="grid grid--2">
         <div class="card card--pad">
@@ -172,6 +249,7 @@
 <script src="../assets/js/lite-data.js" defer></script>
 <script src="../assets/js/site-data.js" defer></script>
 <script src="../assets/js/store.js" defer></script>
+<script src="../assets/js/cms-sync.js" defer></script>
 <script src="../assets/js/main.js" defer></script>
 <script src="../assets/js/admin.js" defer></script>
 </body>

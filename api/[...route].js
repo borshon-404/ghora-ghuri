@@ -322,6 +322,35 @@ module.exports = async function handler(req, res) {
     }
   }
 
+  // --------------------------------------------------------------- Pages CMS
+  if (pathname === '/api/pages') {
+    if (req.method === 'GET') {
+      const data = await getEntity('pages', 'pages.json');
+      return res.status(200).json(data || {});
+    }
+    if (req.method === 'PUT') {
+      if (!checkAuth(req)) return res.status(401).json({ error: 'unauthorized' });
+      const val = req.body || {};
+      await setEntity('pages', val, 'pages.json');
+      return res.status(200).json({ ok: true, pages: val });
+    }
+  }
+
+  // ----------------------------------------------------------- Portfolio Works
+  if (pathname === '/api/portfolio') {
+    if (req.method === 'GET') {
+      const data = await getEntity('portfolio', 'portfolio.json');
+      return res.status(200).json(data || []);
+    }
+    if (req.method === 'PUT') {
+      if (!checkAuth(req)) return res.status(401).json({ error: 'unauthorized' });
+      const val = req.body;
+      if (!Array.isArray(val)) return res.status(422).json({ error: 'expected array' });
+      await setEntity('portfolio', val, 'portfolio.json');
+      return res.status(200).json({ ok: true, portfolio: val });
+    }
+  }
+
   // ------------------------------------------------------------ Site Settings
   if (pathname === '/api/settings') {
     if (req.method === 'GET') {

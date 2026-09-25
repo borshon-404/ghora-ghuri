@@ -11,6 +11,9 @@
     dest: 'gg.destinations.v1',
     pkg: 'gg.packages.v1',
     blog: 'gg.blog.v1',
+    pages: 'gg.pages.v1',
+    settings: 'gg.settings.v1',
+    portfolio: 'gg.portfolio.v1',
     bookings: 'gg.bookings.v1',
     session: 'gg.admin.session',
     token: 'gg.admin.token',
@@ -69,23 +72,23 @@
   STORE.api = api;
 
   STORE.get = function (kind) {
-    var overrideKey = kind === 'destinations' ? K.dest : (kind === 'packages' ? K.pkg : K.blog);
-    return api(kind).then(function (rows) {
-      if (rows && rows.length) {
-        write(overrideKey, rows);
-        if (GG.data && GG.data.put) GG.data.put(kind, rows);
-        return rows;
+    var overrideKey = K[kind] || ('gg.' + kind + '.v1');
+    return api(kind).then(function (data) {
+      if (data) {
+        write(overrideKey, data);
+        if (GG.data && GG.data.put) GG.data.put(kind, data);
+        return data;
       }
       throw new Error('Empty from server');
     }).catch(function (e) {
       var cached = read(overrideKey, null);
-      if (cached && cached.length) return cached;
+      if (cached) return cached;
       return (GG.data && GG.data.load) ? GG.data.load(kind) : [];
     });
   };
 
   STORE.put = function (kind, items) {
-    var overrideKey = kind === 'destinations' ? K.dest : (kind === 'packages' ? K.pkg : K.blog);
+    var overrideKey = K[kind] || ('gg.' + kind + '.v1');
     write(overrideKey, items);
     if (GG.data && GG.data.put) GG.data.put(kind, items);
     return api(kind, {
@@ -106,7 +109,7 @@
 
   STORE.upsert = function (kind, item) {
     return STORE.get(kind).then(function (list) {
-      var copy = (list || []).slice();
+      var copy = Array.isArray(list) ? list.slice() : [];
       var idx = -1;
       for (var i = 0; i < copy.length; i++) {
         if (copy[i].id === item.id) { idx = i; break; }
@@ -119,7 +122,7 @@
 
   STORE.remove = function (kind, id) {
     return STORE.get(kind).then(function (list) {
-      var filtered = (list || []).filter(function (r) { return r.id !== id; });
+      var filtered = Array.isArray(list) ? list.filter(function (r) { return r.id !== id; }) : [];
       return STORE.put(kind, filtered);
     });
   };
@@ -151,14 +154,34 @@
 
   /* ---------------------------------------------------------------- export */
   STORE.exportBundle = function () {
-    return Promise.all([STORE.get('destinations'), STORE.get('packages'), STORE.bookings.list()])
-      .then(function (r) {
-        return {
-          generator: 'GHORA GHURI admin', exportedAt: new Date().toISOString(),
-          counts: { destinations: r[0].length, packages: r[1].length, bookings: r[2].length },
-          destinations: r[0], packages: r[1], bookings: r[2]
-        };
-      });
+    return Promise.all([
+      STORE.get('destinations'),
+      STORE.get('packages'),
+      STORE.get('blog'),
+      STORE.get('settings'),
+      STORE.get('pages'),
+      STORE.get('portfolio'),
+      STORE.bookings.list()
+    ]).then(function (r) {
+      return {
+        generator: 'GHORA GHURI Admin Headless CMS',
+        exportedAt: new Date().toISOString(),
+        counts: {
+          destinations: r[0].length,
+          packages: r[1].length,
+          blog: r[2].length,
+          portfolio: (r[5] || []).length,
+          bookings: r[6].length
+        },
+        destinations: r[0],
+        packages: r[1],
+        blog: r[2],
+        settings: r[3],
+        pages: r[4],
+        portfolio: r[5],
+        bookings: r[6]
+      };
+    });
   };
 
   STORE.download = function (obj, filename) {
@@ -179,7 +202,14 @@
       }
       if (data.destinations) STORE.put('destinations', data.destinations);
       if (data.packages) STORE.put('packages', data.packages);
-      return { destinations: (data.destinations || []).length, packages: (data.packages || []).length };
+      if (data.blog) STORE.put('blog', data.blog);
+      if (data.settings) STORE.put('settings', data.settings);
+      if (data.pages) STORE.put('pages', data.pages);
+      if (data.portfolio) STORE.put('portfolio', data.portfolio);
+      return {
+        destinations: (data.destinations || []).length,
+        packages: (data.packages || []).length
+      };
     } catch (e) { return null; }
   };
 

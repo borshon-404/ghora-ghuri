@@ -1,0 +1,98 @@
+{
+  "home": {
+    "title": "GHORA GHURI - Tours, Treks & Heritage across Bangladesh",
+    "meta_description": "Custom itineraries, fixed departures and guide-led expeditions across Bangladesh.",
+    "hero_slides": [
+      {
+        "eyebrow": "Bangladesh, end to end",
+        "title": "Mangrove tigers, ridge-top clouds and a 120 km sea beach",
+        "subtitle": "GHORA GHURI is a Khulna-based agency running fixed-departure tours and private itineraries across all eight divisions - with the boat, permit and guide work handled before you arrive.",
+        "bg_image": "assets/images/destinations/sundarbans.jpg",
+        "cta_primary_text": "View tour packages",
+        "cta_primary_link": "pages/packages.html",
+        "cta_secondary_text": "Browse 142 destinations",
+        "cta_secondary_link": "pages/destinations.html"
+      },
+      {
+        "eyebrow": "Beach & island",
+        "title": "Cox's Bazar, Inani, Himchari and St. Martin's",
+        "subtitle": "Midweek departures from Khulna, Dhaka or the airport, with beachfront hotels, guide support and the coral-island launch booked in one place.",
+        "bg_image": "assets/images/destinations/coxsbazar-sea-beach.jpg",
+        "cta_primary_text": "Cox's Bazar 3 days",
+        "cta_primary_link": "pages/destination-detail.html?id=coxsbazar-sea-beach",
+        "cta_secondary_text": "St. Martin's 2 nights",
+        "cta_secondary_link": "pages/destination-detail.html?id=saint-martins-island"
+      },
+      {
+        "eyebrow": "Tea & hills",
+        "title": "Srimangal tea gardens and the Chittagong Hill Tracts",
+        "subtitle": "Cycle between estates, walk Lawachara's canopy, then trek Chandraket for the cloud line - a four-day loop built for photographers and slow travellers.",
+        "bg_image": "assets/images/destinations/srimangal.jpg",
+        "cta_primary_text": "Hill & eco tours",
+        "cta_primary_link": "pages/packages.html?tag=eco",
+        "cta_secondary_text": "Request a custom trip",
+        "cta_secondary_link": "pages/booking.html"
+      },
+      {
+        "eyebrow": "Heritage",
+        "title": "Paharpur, Mahasthangarh, Bagerhat and old Dhaka",
+        "subtitle": "Two UNESCO sites, three sultanate cities and a guided Mughal-fort morning - north Bengal done properly with an archaeology-trained guide.",
+        "bg_image": "assets/images/destinations/mahasthangarh.jpg",
+        "cta_primary_text": "Bagerhat mosque city",
+        "cta_primary_link": "pages/destination-detail.html?id=shat-gombuj-mosque",
+        "cta_secondary_text": "All heritage places",
+        "cta_secondary_link": "pages/destinations.html?type=heritage"
+      }
+    ],
+    "highlights_title": "Why travel with GHORA GHURI",
+    "highlights_subtitle": "Built from Khulna, running journeys across all 8 divisions with verified local hosts.",
+    "sundarban_banner": {
+      "title": "Sundarbans Expedition Specialists",
+      "subtitle": "Direct forest permits, certified naturalist rangers, silent electric launches in restricted zones, and private boat charters embarking weekly from Khulna and Mongla.",
+      "link_text": "Explore Sundarban Packages",
+      "link_url": "pages/packages.html?tag=eco"
+    },
+    "testimonials": [
+      {
+        "quote": "Three days in the Sundarbans with two kids - the boat crew knew exactly where the deer come out at dusk. The permit paperwork was already done when we reached Noapara.",
+        "author": "Fahmida R.",
+        "role": "Dhaka · Sundarbans 3N",
+        "avatar": "FR"
+      },
+      {
+        "quote": "We asked for a north-Bengal heritage loop in one email and got a day-by-day plan with Paharpur, Mahasthangarh, Kantajiu and Puthia in under 24 hours. Guide was a postgraduate archaeologist.",
+        "author": "Andrew S.",
+        "role": "UK · Private tour",
+        "avatar": "AS"
+      },
+      {
+        "quote": "Booked Kuakata for 14 colleagues. Two buses, one hotel block, sunrise on the beach, zero confusion, and the taka quote did not move.",
+        "author": "Mahmudul H.",
+        "role": "Khulna · Corporate",
+        "avatar": "MH"
+      }
+    ]
+  },
+  "about": {
+    "title": "About GHORA GHURI - guide-led tours run from Khulna",
+    "mission_statement": "To make every corner of Bangladesh accessible, authentic, and sustainable through locally-anchored guiding and transparent pricing.",
+    "founder_name": "Mashzidul Tanun Borshon",
+    "founder_title": "Founder & Managing Director",
+    "founder_bio": "Born in Khulna, Mashzidul founded GHORA GHURI to bridge the gap between discerning domestic/international travelers and grassroots heritage guardians across Bangladesh.",
+    "story_heading": "How GHORA GHURI Began",
+    "story_paragraphs": [
+      "Starting with small boat charters into the southern Sundarban channels, GHORA GHURI expanded over five years into a full-service travel operating company with direct relationships with licensed boatmasters, village homestead hosts, and archaeology scholars.",
+      "Today, our network covers all 64 districts with verified field coordinators, ensuring zero hidden costs, prompt permits, and respect for local ecosystems."
+    ]
+  },
+  "contact": {
+    "heading": "Contact Our Khulna Headquarters",
+    "subheading": "Direct human responses within four hours during working days.",
+    "office_hours": "Saturday – Thursday, 9:00 AM – 7:30 PM (BST)",
+    "phone": "+8801330132141",
+    "email": "info.borshon@gmail.com",
+    "whatsapp": "+8801330132141",
+    "address": "Daulatpur, Khulna-9240, Bangladesh",
+    "map_coordinates": "22.8872, 89.5298"
+  }
+}
