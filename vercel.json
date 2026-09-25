@@ -1,6 +1,9 @@
 {
-  "cleanUrls": true,
+  "cleanUrls": false,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/[...route]" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
