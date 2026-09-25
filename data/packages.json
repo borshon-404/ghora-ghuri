@@ -1,0 +1,1166 @@
+[
+ {
+  "id": "sundarban-3n",
+  "title": "Sundarbans: Three Nights on the Mangrove Rivers",
+  "title_bn": "সুন্দরবন: তিন রাতের নৌভ্রমণ",
+  "division": "Khulna",
+  "badge": "Best seller",
+  "duration_days": 4,
+  "nights": 3,
+  "price_min": 13900,
+  "price_max": 22500,
+  "rating": 4.9,
+  "reviews": 212,
+  "group_size": "2 - 18 (shared departures cap at 18)",
+  "languages": "Bangla, English",
+  "meals": "Full board on board",
+  "tags": [
+   "eco",
+   "wildlife",
+   "river",
+   "heritage"
+  ],
+  "featured": true,
+  "summary": "A licensed vessel, an approved forest route and three nights between Katka, Haringata and Dublar Char - deer at dusk, kingfishers at first light, and Bagerhat’s Sixty Dome Mosque on the way in.",
+  "stops": [
+   "Khulna",
+   "Noapara Ghat",
+   "Katka",
+   "Haringata",
+   "Dublar Char",
+   "Mongla",
+   "Bagerhat"
+  ],
+  "destination_ids": [
+   "sundarbans",
+   "katka-arpi-char",
+   "shat-gombuj-mosque",
+   "bagerhat-mosque-city-walk",
+   "dhaluttar-bon",
+   "mongla-beach-port"
+  ],
+  "itinerary": [
+   {
+    "title": "1 — Khulna to Noapara, first boat day",
+    "detail": "Pick-up at Khulna railway station or your hotel, brief safety and permit check at the Noapara counter, board the licensed vessel, sail the Shibsa to Katka. Evening walk on the estuarine beach; forest-registered guide on board throughout."
+   },
+   {
+    "title": "2 — Katka to Haringata",
+    "detail": "Sunrise from the Katka watchtower, then a small-boat push into the narrow creeks where the banks close in. Afternoon at Haringata’s deer breeding area, and a late-afternoon char walk for spotted deer and wild boar tracks. No night spotlighting: it is prohibited and we do not arrange it."
+   },
+   {
+    "title": "3 — Dublar Char day",
+    "detail": "Cross to Dublar Char, the big sandbank with its seasonal fishing camp, oyster beds and gharial banking area. Swim only where the crew choose the sandbar; lunch on board; return sail at golden hour."
+   },
+   {
+    "title": "4 — Mongla, Bagerhat and the drive back",
+    "detail": "Disembark at Mongla, visit the Sixty Dome Mosque and the Bagerhat mosque-city lane walk with an archaeology-trained guide, then transfer to Khulna or Dhaka. Add a night in Khulna if you would rather not drive on."
+   }
+  ],
+  "included": [
+   "Forest-department permit filing and entry fees",
+   "Licensed cabin cruiser or mining boat, shared twin cabin with attached bath",
+   "All meals on board (Bangla, vegetarian available)",
+   "Forest-registered guide and boat crew",
+   "Khulna hotel on night 1 and airport/rail transfers",
+   "Bagerhat guided visit and tickets",
+   "Fuel, driver allowance, and one bottled-water refill station per port"
+  ],
+  "excluded": [
+   "Alcohol (not permitted in the reserve)",
+   "Soft drinks and laundry on board",
+   "Tips for crew and guide",
+   "Hotel upgrades in Khulna",
+   "Travel insurance",
+   "Anything not listed as included"
+  ],
+  "departure_dates": [
+   {
+    "date": "2026-11-12",
+    "seats": 9,
+    "price": 13900
+   },
+   {
+    "date": "2026-12-10",
+    "seats": 4,
+    "price": 15900
+   },
+   {
+    "date": "2027-01-14",
+    "seats": 13,
+    "price": 14900
+   },
+   {
+    "date": "2027-02-11",
+    "seats": 18,
+    "price": 13900
+   }
+  ],
+  "image": "assets/images/destinations/sundarbans.jpg"
+ },
+ {
+  "id": "sundarban-day-1d",
+  "title": "Sundarbans Day Run from Khulna",
+  "title_bn": "খুলনা থেকে একদিনের সুন্দরবন",
+  "division": "Khulna",
+  "badge": "Short & sharp",
+  "duration_days": 1,
+  "nights": 0,
+  "price_min": 3400,
+  "price_max": 5200,
+  "rating": 4.6,
+  "reviews": 96,
+  "group_size": "4 - 30",
+  "languages": "Bangla, English",
+  "meals": "Breakfast + lunch",
+  "tags": [
+   "eco",
+   "river",
+   "photography"
+  ],
+  "featured": true,
+  "summary": "For travellers with one day and a real wish to see mangrove forest: dawn boat from Noapara, two creeks, a watchtower, lunch on board, back by late afternoon.",
+  "stops": [
+   "Khulna",
+   "Noapara Ghat",
+   "Katka"
+  ],
+  "destination_ids": [
+   "sundarbans",
+   "katka-arpi-char",
+   "mongla-beach-port"
+  ],
+  "itinerary": [
+   {
+    "title": "1 — Full day on the Shibsa",
+    "detail": "06:00 pick-up in Khulna, 07:00 boat departure, creek navigation while the banks are still active with kingfishers and mudskippers, watchtower climb at Katka, rice and fish lunch on board, afternoon return via the shrimp-pond fringe. 17:00 drop-off. Boat capacity and permit counters close at dusk, so the schedule is fixed."
+   }
+  ],
+  "included": [
+   "Shared boat with licensed crew",
+   "Forest permit and entry fees",
+   "Guide",
+   "Breakfast tea and Bengali lunch",
+   "Khulna hotel/railway transfers"
+  ],
+  "excluded": [
+   "Overnight costs",
+   "Tips",
+   "Insurance",
+   "Private boat charter (add Tk 6,500)"
+  ],
+  "departure_dates": [
+   {
+    "date": "2026-11-15",
+    "seats": 22,
+    "price": 3400
+   },
+   {
+    "date": "2026-12-13",
+    "seats": 16,
+    "price": 3900
+   },
+   {
+    "date": "2027-01-17",
+    "seats": 28,
+    "price": 3400
+   }
+  ],
+  "image": "assets/images/destinations/sundarbans.jpg"
+ },
+ {
+  "id": "coast-4d",
+  "title": "Cox’s Bazar, Himchari, Inani & Teknaf",
+  "title_bn": "কক্সবাজার, হিমছড়ি, ইনানি ও টেকনাফ",
+  "division": "Chattogram",
+  "badge": "Beach classic",
+  "duration_days": 4,
+  "nights": 3,
+  "price_min": 9900,
+  "price_max": 16500,
+  "rating": 4.7,
+  "reviews": 188,
+  "group_size": "2 - 18",
+  "languages": "Bangla, English",
+  "meals": "Breakfast + dinner",
+  "tags": [
+   "beach",
+   "hill",
+   "photography",
+   "family"
+  ],
+  "featured": true,
+  "summary": "The 120 km beach done properly: midweek slots, sunrise at Himchari’s waterfall and temple, Inani’s low-tide rock shelves, then the boat to St. Martin’s if the weather window holds.",
+  "stops": [
+   "Cox’s Bazar",
+   "Himchari",
+   "Khuni Khular Pukhur",
+   "Inani",
+   "Teknaf"
+  ],
+  "destination_ids": [
+   "coxsbazar-sea-beach",
+   "himchari",
+   "sugandha-khuni-pahar",
+   "inani-beach",
+   "teknaf-saint-martin"
+  ],
+  "itinerary": [
+   {
+    "title": "1 — Arrive, Sugandha point and the laboni swing",
+    "detail": "Flight or night-bus arrival, check in at Laboni/Kolatoli, late-afternoon walk to Sugandha where the beach narrows against the hill, seafood market briefing (buy at the counter, have it cooked, agree the price first)."
+   },
+   {
+    "title": "2 — Himchari and Khuni Khular Pukhur",
+    "detail": "Early start up the ridge: Himchari waterfall (seasonal), the hill-top temple, and the hidden lagoon of Khuni Khular Pukhur behind the dunes. Macaque etiquette is covered on the way in - no food in hand, no plastic bags."
+   },
+   {
+    "title": "3 — Inani morning, Teknaf afternoon",
+    "detail": "Low tide at Inani for the rock shelves and black coral fragments exposed on the reef flat (walk in shoes, do not break or take any). Afternoon in Teknaf: the twin-ridge viewpoint, the Birmindia border marker view, and the sunset boat."
+   },
+   {
+    "title": "4 — Departure, or extend to St. Martin’s",
+    "detail": "Morning free for the beach, then transfer out. Guests adding St. Martin’s take the 09:00 launch from Teknaf and rejoin the return schedule two nights later."
+   }
+  ],
+  "included": [
+   "Three nights beachfront hotel (standard or twin sharing)",
+   "Daily breakfast and three dinners",
+   "Private AC vehicle with driver for all sightseeing",
+   "English- or Bangla-speaking local guide",
+   "Entry fees for Himchari and the lagoon area",
+   "Fuel, parking and driver allowance"
+  ],
+  "excluded": [
+   "Domestic flights / long-distance bus tickets",
+   "Launch tickets to St. Martin’s (Tk 2,200 return, weather-dependent)",
+   "Lunches and seafood",
+   "Parasailing and jet-ski operators",
+   "Tips",
+   "Insurance"
+  ],
+  "departure_dates": [
+   {
+    "date": "2026-11-05",
+    "seats": 11,
+    "price": 9900
+   },
+   {
+    "date": "2026-12-19",
+    "seats": 3,
+    "price": 14500
+   },
+   {
+    "date": "2027-02-06",
+    "seats": 15,
+    "price": 10500
+   }
+  ],
+  "image": "assets/images/destinations/coxsbazar-sea-beach.jpg"
+ },
+ {
+  "id": "st-martin-2n",
+  "title": "St. Martin’s Island Weekend",
+  "title_bn": "সেন্টমার্টিন দ্বীপ",
+  "division": "Chattogram",
+  "badge": "Seasonal",
+  "duration_days": 3,
+  "nights": 2,
+  "price_min": 8600,
+  "price_max": 13800,
+  "rating": 4.5,
+  "reviews": 143,
+  "group_size": "2 - 30 (launch seats are limited)",
+  "languages": "Bangla, English",
+  "meals": "Breakfast + dinner",
+  "tags": [
+   "beach",
+   "island",
+   "eco",
+   "photography"
+  ],
+  "featured": true,
+  "summary": "Two nights on the coral island with a timed landing at Chhera, a cycle round the main road, and the rules that keep the reef intact - which also explains why the season is only October to May.",
+  "stops": [
+   "Teknaf",
+   "Chhera Island",
+   "Martin’s Beach"
+  ],
+  "destination_ids": [
+   "saint-martins-island",
+   "teknaf-saint-martin"
+  ],
+  "itinerary": [
+   {
+    "title": "1 — Teknaf to the island",
+    "detail": "Morning assembly at Teknaf jetty, 09:00 launch crossing (about 1 h 40 m), check-in at the resort or guesthouse block, evening on the east beach where the sand is still white after the day-trippers leave."
+   },
+   {
+    "title": "2 — Chhera at low tide, island by bicycle",
+    "detail": "Boat to Chhera timed to the published low water so the coral shelf is exposed for a short, shoe-on snorkel and nothing is touched or lifted. Return to Martin’s for an afternoon cycling the single road: coconut groves, the small Hindu temple at Uttar para, the mangrove fringe at the south end."
+   },
+   {
+    "title": "3 — Island morning and return launch",
+    "detail": "Sunrise on the west sand - the quiet side, where the overnight tide has laid down a fresh shelf and nobody is standing on it yet. Breakfast at 08:00, rooms vacated by 09:30, the 11:00 launch back to Teknaf, then the transfer to Cox’s Bazar airport or the night bus to Dhaka. If the launch is cancelled for weather the day becomes a coast-road return and we hold the hotel either way."
+   }
+  ],
+  "included": [
+   "Return launch Teknaf-Martin’s with reserved seats",
+   "Two nights shared resort accommodation",
+   "Breakfast and dinner both days",
+   "Chhera boat with timed landing permit",
+   "Bicycle for the island loop",
+   "Guide and transfers in Teknaf"
+  ],
+  "excluded": [
+   "Anything not listed",
+   "Scuba or glass-bottom boat (we do not sell reef-contact activities)",
+   "Plastic-bottled water on the island (refill points listed on arrival)",
+   "Tips",
+   "Insurance"
+  ],
+  "departure_dates": [
+   {
+    "date": "2026-11-20",
+    "seats": 8,
+    "price": 8600
+   },
+   {
+    "date": "2026-12-26",
+    "seats": 2,
+    "price": 12400
+   },
+   {
+    "date": "2027-01-23",
+    "seats": 20,
+    "price": 9400
+   }
+  ],
+  "image": "assets/images/destinations/saint-martins-island.jpg"
+ },
+ {
+  "id": "north-heritage-5d",
+  "title": "The North Bengal Heritage Loop: Paharpur to Puthia",
+  "title_bn": "উত্তরবঙ্গের প্রাচীন নিদর্শন",
+  "division": "Rajshahi",
+  "badge": "For history people",
+  "duration_days": 5,
+  "nights": 4,
+  "price_min": 15400,
+  "price_max": 23800,
+  "rating": 4.9,
+  "reviews": 77,
+  "group_size": "2 - 14",
+  "languages": "Bangla, English",
+  "meals": "Breakfast + dinner",
+  "tags": [
+   "heritage",
+   "architecture",
+   "museum",
+   "photography"
+  ],
+  "featured": true,
+  "summary": "Somapura Mahavihara, Mahasthangarh, Kantajiu, Puthia, Bagha and Choto Sona in one arc with an archaeology-trained guide, terracotta at raking light, and the Varendra Museum when it is closed to everyone else.",
+  "stops": [
+   "Rajshahi",
+   "Naogaon",
+   "Bogura",
+   "Dinajpur",
+   "Rajshahi"
+  ],
+  "destination_ids": [
+   "paharpur-vihara",
+   "mahasthangarh",
+   "kantajiu-temple",
+   "puthia-temple-complex",
+   "bagha-mosque",
+   "gaur-choto-sona-mosque",
+   "varendra-research-museum",
+   "nadhata-temple"
+  ],
+  "itinerary": [
+   {
+    "title": "1 — Rajshahi, Varendra and Godagari ghat",
+    "detail": "Arrive Rajshahi, morning at the Varendra Research Museum (the finest assemblage of Bengal sculpture outside Dhaka), late-afternoon at Godagari on the Padma, mango in season."
+   },
+   {
+    "title": "2 — Mahasthangarh and Kantajiu",
+    "detail": "Full day at the fortified city: the Jahajghata tank, Deva Angana, the site museum, then the drive north to Kantajiu for one of Bengal’s densest surviving terracotta fronts - best in the last hour of light."
+   },
+   {
+    "title": "3 — Paharpur and Dinajpur",
+    "detail": "Sunrise at Somapura Mahavihara before the coaches, the Bhutura monastery mound and the on-site museum, then Dinajpur for the Rajbari and the night at Shilsha Heritage Resort."
+   },
+   {
+    "title": "4 — Puthia and Bagha",
+    "detail": "The Puthia temple complex - Shyamakunda, Govinda, Keshor - then Bagha Mosque in the shallow forest depression where the acoustics carry, and the short run to the Adina site and Choto Sona Mosque at Gaur."
+   },
+   {
+    "title": "5 — Return via Natore",
+    "detail": "Early start for Natore: the Rajbari complex with its temple and the boat-shaped palace on the lake, then Chandan Ghur’s palace mound - a ruin now, but the terracotta panels and the moated layout show why the Rajputani families built here. Drop at Rajshahi airport or the intercity bus by 15:00, with time for a last plate of mango in season."
+   }
+  ],
+  "included": [
+   "Four nights in heritage/tourist-circuit hotels (double sharing)",
+   "All breakfasts and dinners",
+   "Private AC vehicle with driver for five days",
+   "Archaeology-trained guide throughout",
+   "ASI/DoA tickets at all listed sites",
+   "Museum guided sessions at Varendra and Paharpur",
+   "Fuel, parking, driver allowance"
+  ],
+  "excluded": [
+   "Rail or air tickets into/out of Rajshahi",
+   "Lunches",
+   "Drone permits (not granted at protected sites)",
+   "Tips",
+   "Insurance"
+  ],
+  "departure_dates": [
+   {
+    "date": "2026-11-02",
+    "seats": 10,
+    "price": 15400
+   },
+   {
+    "date": "2027-01-11",
+    "seats": 6,
+    "price": 16900
+   },
+   {
+    "date": "2027-02-15",
+    "seats": 12,
+    "price": 15400
+   }
+  ],
+  "image": "assets/images/destinations/paharpur-vihara.jpg"
+ },
+ {
+  "id": "bagerhat-2d",
+  "title": "Bagerhat Mosque City & the Forest Edge",
+  "title_bn": "বাগেরহাট মসজিদ শহর ও বনভূমি",
+  "division": "Khulna",
+  "badge": "Weekend escape",
+  "duration_days": 2,
+  "nights": 1,
+  "price_min": 5400,
+  "price_max": 8200,
+  "rating": 4.8,
+  "reviews": 118,
+  "group_size": "2 - 22",
+  "languages": "Bangla, English",
+  "meals": "Breakfast",
+  "tags": [
+   "heritage",
+   "architecture",
+   "eco"
+  ],
+  "featured": false,
+  "summary": "One of the finest concentrations of sultanate architecture on earth, plus the Sundarban fringe at Dublar Char road and the Shyamnagar village tracks that most visitors never see.",
+  "stops": [
+   "Khulna",
+   "Bagerhat",
+   "Rampal",
+   "Shyamnagar"
+  ],
+  "destination_ids": [
+   "shat-gombuj-mosque",
+   "bagerhat-mosque-city-walk",
+   "khulna-divisional-museum",
+   "burigoalini",
+   "dhaluttar-bon"
+  ],
+  "itinerary": [
+   {
+    "title": "1 — Khulna museum, then the mosque city",
+    "detail": "Morning at the Khulna Divisional Museum for the river-boat models and the forest ethnography, drive to Bagerhat for the Sixty Dome Mosque at its best in the afternoon, the Khana and Mughal mosques, the tomb of Khan Jahan, and the tank walk. Night in Bagerhat or back to Khulna."
+   },
+   {
+    "title": "2 — Forest edge and char villages",
+    "detail": "The Rampal road to the forest-edge villages: timber boats at the ghat, honey-collector stalls, and the Shyamnagar embankment walk with dolphins in the Rupsa if the tide is right (never promised). Drop at Khulna by 15:00."
+   }
+  ],
+  "included": [
+   "One night hotel with breakfast",
+   "All transfers from Khulna",
+   "Guided mosque-city walk with a local historian",
+   "Entry fees at listed monuments",
+   "Boat hour on the Rupsa fringe"
+  ],
+  "excluded": [
+   "Sundarban overnight (available as an add-on)",
+   "Lunches and dinners",
+   "Tips",
+   "Insurance"
+  ],
+  "departure_dates": [
+   {
+    "date": "2026-11-08",
+    "seats": 14,
+    "price": 5400
+   },
+   {
+    "date": "2026-12-06",
+    "seats": 14,
+    "price": 5900
+   },
+   {
+    "date": "2027-01-10",
+    "seats": 20,
+    "price": 5400
+   }
+  ],
+  "image": "assets/images/destinations/shat-gombuj-mosque.jpg"
+ },
+ {
+  "id": "sylhet-tea-4d",
+  "title": "Srimangal Tea Gardens, Lawachara & Madhabkunda",
+  "title_bn": "শ্রীমঙ্গল চা-বাগান ও ল্যাওড়া",
+  "division": "Sylhet",
+  "badge": "Green season",
+  "duration_days": 4,
+  "nights": 3,
+  "price_min": 10800,
+  "price_max": 17200,
+  "rating": 4.8,
+  "reviews": 151,
+  "group_size": "2 - 16",
+  "languages": "Bangla, English",
+  "meals": "Breakfast + dinner",
+  "tags": [
+   "eco",
+   "hill",
+   "forest",
+   "photography"
+  ],
+  "featured": true,
+  "summary": "Cycle the estate roads before the plucking shift, walk Lawachara’s canopy boardwalk with a tribal guide, then the long walk in to Madhabkunda for the swim under the fall.",
+  "stops": [
+   "Sylhet",
+   "Srimangal",
+   "Lawachara",
+   "Madhabkunda",
+   "Bishnakand"
+  ],
+  "destination_ids": [
+   "srimangal",
+   "lawachara",
+   "madhabkunda",
+   "bisnakand-mahadev",
+   "shah-jalal-dargah"
+  ],
+  "itinerary": [
+   {
+    "title": "1 — Sylhet to the tea belt",
+    "detail": "Arrive Osmani International, transfer to Srimangal. Late-afternoon at the Narayana Tea Estate factory floor (when the rollers run) and the estate bazaar, tea at the manager’s cottage view point."
+   },
+   {
+    "title": "2 — Lawachara with a Kuki guide",
+    "detail": "Pre-dawn gibbon call walk, the canopy platform and the cave trail with a community guide from the Baghaiya/Halang cardamom gardens. Afternoon: the Madhabkunda long walk in, night at the forest gate."
+   },
+   {
+    "title": "3 — Madhabkunda falls and Bishnakand",
+    "detail": "Swim under the fall before the day trippers arrive, then the Shilpara Road to Bishnakand’s hilltop Shiva temple and the tea-mountain viewpoint above it."
+   },
+   {
+    "title": "4 — Sylhet: dargah, basket markets, departure",
+    "detail": "Return to Sylhet for Shah Jalal’s dargah before Friday prayer crowd, the bamboo and cane market, and drop at the airport or the night bus."
+   }
+  ],
+  "included": [
+   "Three nights (two in Srimangal estate rest house class, one near Madhabkunda)",
+   "Breakfast and dinner",
+   "Community forest guide at Lawachara (fee supports the village committee)",
+   "Cycle hire for the estate loop",
+   "Private vehicle Sylhet-Srimangal-Madhabkunda return",
+   "All entry fees and camera charges"
+  ],
+  "excluded": [
+   "Rail/air tickets",
+   "Lunches",
+   "Elephant or boat \"experiences\" that handle wildlife (not offered)",
+   "Tips",
+   "Insurance"
+  ],
+  "departure_dates": [
+   {
+    "date": "2026-11-01",
+    "seats": 7,
+    "price": 10800
+   },
+   {
+    "date": "2026-12-05",
+    "seats": 12,
+    "price": 11800
+   },
+   {
+    "date": "2027-06-04",
+    "seats": 9,
+    "price": 13600
+   }
+  ],
+  "image": "assets/images/destinations/srimangal.jpg"
+ },
+ {
+  "id": "haor-3d",
+  "title": "Sylhet’s Haor Waterworld in Monsoon",
+  "title_bn": "বর্ষার হাওর",
+  "division": "Sylhet",
+  "badge": "June to August",
+  "duration_days": 3,
+  "nights": 2,
+  "price_min": 8900,
+  "price_max": 13400,
+  "rating": 4.7,
+  "reviews": 41,
+  "group_size": "2 - 12",
+  "languages": "Bangla, English",
+  "meals": "Breakfast + dinner",
+  "tags": [
+   "river",
+   "offbeat",
+   "photography",
+   "birding"
+  ],
+  "featured": true,
+  "summary": "When the haors fill, the roads become channels and the villages sit on islands. Row-boat between Tangaur, Bazaratung and Goylaghat, sleep on the embankment, and be honest: this is a wet, slow, wonderful season.",
+  "stops": [
+   "Sunamganj",
+   "Tangaur",
+   "Bazaratung",
+   "Goylaghat"
+  ],
+  "destination_ids": [
+   "tangaur-haor",
+   "bazaratung",
+   "goylaghat-jaintiapur",
+   "jagannath-temple-sunamganj",
+   "boalakhum"
+  ],
+  "itinerary": [
+   {
+    "title": "1 — Sunamganj and the Bazaratung boat",
+    "detail": "Transfer from Sylhet, afternoon row-boating through the flooded rice fields of Bazaratung while families move the last boro paddy, evening on the haor shore at Jagannath temple."
+   },
+   {
+    "title": "2 — Tangaur",
+    "detail": "Full day on Tangaur: the haor’s island villages, the 400 km view across water to the Garo hills, and the birding list that peaks in the wet months. Night at the Dakua camp on raised ground."
+   },
+   {
+    "title": "3 — Goylaghat and the Jaintia run-up",
+    "detail": "Morning boat back to Goylaghat, then the short climb on to the pine ridge above the haor, where on a clear day the whole water body reads as a sea with islands in it. The Jaintiapur border bazaar is the last stop - Khasi hill town, oranges in winter - then the drive back through Sunamganj to Sylhet, arriving around 18:00."
+   }
+  ],
+  "included": [
+   "Two nights (embankment cottage and camp)",
+   "All boat hiring including the country-boat day on Tangaur",
+   "Breakfast and dinner",
+   "Local boatman-guide",
+   "Private vehicle with driver",
+   "Rain-gear briefing and dry-bag loan"
+  ],
+  "excluded": [
+   "Lunches",
+   "Hotel upgrades when properties close for flood (substitutions apply)",
+   "Boat-swim sessions if the water is unsafe",
+   "Tips",
+   "Insurance"
+  ],
+  "departure_dates": [
+   {
+    "date": "2026-06-19",
+    "seats": 8,
+    "price": 8900
+   },
+   {
+    "date": "2026-07-17",
+    "seats": 10,
+    "price": 8900
+   },
+   {
+    "date": "2026-08-14",
+    "seats": 6,
+    "price": 9500
+   }
+  ],
+  "image": "assets/images/destinations/tangaur-haor.jpg"
+ },
+ {
+  "id": "hills-5d",
+  "title": "Bandarban, Rangamati & the Chandraket Ridge",
+  "title_bn": "বান্দরবান ও রাঙ্গামাটি পাহাড়",
+  "division": "Chattogram",
+  "badge": "Trek grade: moderate",
+  "duration_days": 5,
+  "nights": 4,
+  "price_min": 13600,
+  "price_max": 21400,
+  "rating": 4.8,
+  "reviews": 89,
+  "group_size": "2 - 14",
+  "languages": "Bangla, English",
+  "meals": "Breakfast + dinner",
+  "tags": [
+   "hill",
+   "adventure",
+   "village",
+   "photography"
+  ],
+  "featured": true,
+  "summary": "Three hills in five days: the twin-lake viewpoint and Roangchari sunrise, the Chandraket cloud line, and Rangamati’s hanging bridge - with community protocols respected and permits filed where required.",
+  "stops": [
+   "Chattogram",
+   "Bandarban",
+   "Rangamati",
+   "Kaptai"
+  ],
+  "destination_ids": [
+   "bandarban-town",
+   "chandraket",
+   "banai-hilkhipa",
+   "tungichhara",
+   "rangamati-town",
+   "kaptai-lake",
+   "boga-lake-tingi",
+   "tripura-heritage-rangamati"
+  ],
+  "itinerary": [
+   {
+    "title": "1 — Chattogram to Bandarban",
+    "detail": "Drive up the Kaptai road, ferry or road around the lake, evening in the Sangu valley town. Register at the deputy commissioner’s office for foreign guests if required for the route."
+   },
+   {
+    "title": "2 — Banai and the painted village",
+    "detail": "Trek in to Banai through betel-leaf gardens, the Chakma mural houses, lunch in the village, back for the Nilgiri sunset on the ridgeline."
+   },
+   {
+    "title": "3 — Chandraket",
+    "detail": "The 2,000 ft sandstone shelf at first light, with the plains and the Bay in the same frame. The trail is exposed; we walk it in dry conditions only, and turn back if the cloud closes."
+   },
+   {
+    "title": "4 — Tungichhara to Rangamati",
+    "detail": "Descend via the Sangu cascade route to the river crossing, then Rangamati: the hanging bridge, the Bajra Kurti viewpoint and the Chakma Rajapara museum."
+   },
+   {
+    "title": "5 — Kaptai and Boga Lake",
+    "detail": "Optional long day to Boga Lake and Tingi for the waterfall swim if the track is dry, or the Kaptai circuit with the Submerging Forest viewpoint; evening transfer to Chattogram."
+   }
+  ],
+  "included": [
+   "Four nights: two guesthouse, one cottage, one lakeside hotel",
+   "All breakfasts and dinners, three packed lunches",
+   "Tribal community guide (fee paid to the co-operative)",
+   "Porter for the Chandraket day",
+   "Permit filing assistance and all village entry fees",
+   "Private vehicle and boat crossings"
+  ],
+  "excluded": [
+   "Air tickets to/from Chattogram",
+   "Lunches in towns",
+   "Bicycle or motorbike rental",
+   "Tips",
+   "Insurance",
+   "Any activity in restricted upazilas where rules change at short notice"
+  ],
+  "departure_dates": [
+   {
+    "date": "2026-11-22",
+    "seats": 9,
+    "price": 13600
+   },
+   {
+    "date": "2027-02-20",
+    "seats": 13,
+    "price": 14200
+   }
+  ],
+  "image": "assets/images/destinations/bandarban-town.jpg"
+ },
+ {
+  "id": "padma-ghats-2d",
+  "title": "Padma Ghats: Godagari, Daulatdia & the Char Sandboxes",
+  "title_bn": "পদ্মার ঘাট",
+  "division": "Rajshahi",
+  "badge": "River people",
+  "duration_days": 2,
+  "nights": 1,
+  "price_min": 4800,
+  "price_max": 7600,
+  "rating": 4.6,
+  "reviews": 57,
+  "group_size": "2 - 18",
+  "languages": "Bangla",
+  "meals": "Breakfast",
+  "tags": [
+   "river",
+   "village",
+   "offbeat"
+  ],
+  "featured": false,
+  "summary": "Two days on the greatest river in Bengal: the ferry crossings, the char schools on sand, and the mango orchards of Rajshahi in the fruit season.",
+  "stops": [
+   "Rajshahi",
+   "Godagari",
+   "Ishwaridi",
+   "Mawa"
+  ],
+  "destination_ids": [
+   "godagari-padma-ghat",
+   "daulatdia-ferry-ghat",
+   "padma-char-camping",
+   "moheshwar-dariapasha",
+   "varendra-research-museum"
+  ],
+  "itinerary": [
+   {
+    "title": "1 — Godagari to the char",
+    "detail": "Morning drive to Godagari ghat, country boat across to a char for the school built on sand, the fishing parasols at noon, and tea with the ferry crew while the current moves the islands. Night in Rajshahi."
+   },
+   {
+    "title": "2 — Mango, museum, and the great ferry",
+    "detail": "Seasonal orchard walk and the Varendra Museum, then the drive south to Daulatdia for one of the longest passenger ferry crossings in Asia, with Moheshwari’s island shrine in mid-river. Drop at Dhaka by night."
+   }
+  ],
+  "included": [
+   "One night hotel with breakfast",
+   "Boat hire and ferry tickets",
+   "Guide",
+   "Orchard and museum entry",
+   "Private vehicle"
+  ],
+  "excluded": [
+   "Lunches and dinners",
+   "Season: ferry routes close in high flood (Jul-Sep) - date changes free",
+   "Tips",
+   "Insurance"
+  ],
+  "departure_dates": [
+   {
+    "date": "2026-11-28",
+    "seats": 16,
+    "price": 4800
+   },
+   {
+    "date": "2027-04-16",
+    "seats": 16,
+    "price": 5600
+   }
+  ],
+  "image": ""
+ },
+ {
+  "id": "delta-chars-3d",
+  "title": "Barishal Char Life: Banaripara, Monpura & the Floating Market",
+  "title_bn": "বরিশালের চর জীবন",
+  "division": "Barishal",
+  "badge": "Delta deep-dive",
+  "duration_days": 3,
+  "nights": 2,
+  "price_min": 7900,
+  "price_max": 12600,
+  "rating": 4.8,
+  "reviews": 64,
+  "group_size": "2 - 14",
+  "languages": "Bangla, English",
+  "meals": "Breakfast + dinner",
+  "tags": [
+   "village",
+   "eco",
+   "river",
+   "offbeat"
+  ],
+  "featured": true,
+  "summary": "Homestay nights on chars that did not exist a generation ago: Banaripara’s eco-village, the Atghar-Kuriana floating market at dawn, Monpura’s long empty beach, and the mangrove nurseries replanting the erosion line.",
+  "stops": [
+   "Barishal",
+   "Banaripara",
+   "Agailjhara",
+   "Gaoria",
+   "Monpura"
+  ],
+  "destination_ids": [
+   "banaripara-eco-village",
+   "atghar-kuriana-floating-market",
+   "monpura-island",
+   "barishal-riverfront-museum",
+   "lebur-char-fatrar-char"
+  ],
+  "itinerary": [
+   {
+    "title": "1 — Barishal to Banaripara",
+    "detail": "Riverfront museum and the port-side breakfast, drive to the eco-village at Banaripara: community-managed homestay, bamboo craft and honey houses, mangrove nursery walk with the women’s planting committee."
+   },
+   {
+    "title": "2 — Floating market dawn, then the boat to Monpura",
+    "detail": "Up at 04:30 for the Atghar-Kuriana floating market where the boats sell vegetables and fish before sunrise, then the launch to Gaoria and the char-hop over to Monpura. Late afternoon on 10 km of sand with nobody on it."
+   },
+   {
+    "title": "3 — Monpura morning and return",
+    "detail": "Sunrise walk to the old lighthouse mound and the crab-farm channels, boat back to the mainland, drop at Barishal by 14:00 (or extend to Kuakata for a further night)."
+   }
+  ],
+  "included": [
+   "Two nights: one community homestay, one char resort",
+   "Breakfast, lunch on the market morning, all dinners",
+   "Boat hire for char crossings",
+   "Homestay and guide fees paid locally",
+   "Mangrove nursery contribution (Tk 300 per guest, planted in your name)",
+   "Private vehicle"
+  ],
+  "excluded": [
+   "Ferries to/from Barishal if arriving by road from Dhaka",
+   "Other lunches",
+   "Tips",
+   "Insurance"
+  ],
+  "departure_dates": [
+   {
+    "date": "2026-12-03",
+    "seats": 10,
+    "price": 7900
+   },
+   {
+    "date": "2027-01-21",
+    "seats": 12,
+    "price": 8400
+   }
+  ],
+  "image": ""
+ },
+ {
+  "id": "dhaka-on-foot-2d",
+  "title": "Old Dhaka on Foot: Sadarghat to Lalbagh",
+  "title_bn": "পুরান ঢাকা পায়ে হেঁটে",
+  "division": "Dhaka",
+  "badge": "City & food",
+  "duration_days": 2,
+  "nights": 1,
+  "price_min": 5200,
+  "price_max": 8400,
+  "rating": 4.7,
+  "reviews": 132,
+  "group_size": "2 - 12",
+  "languages": "Bangla, English",
+  "meals": "Breakfast",
+  "tags": [
+   "city",
+   "heritage",
+   "architecture"
+  ],
+  "featured": true,
+  "summary": "The working port, the Mughal palace, the kumortoli mask lanes and the best two hours of food in the country - with a rickshaw, a launch ride on the Buriganga and a curator at Ahsan Manzil who will actually open the storerooms.",
+  "stops": [
+   "Dhaka",
+   "Sadarghat",
+   "Ahsan Manzil",
+   "Lalbagh",
+   "Shahbagh"
+  ],
+  "destination_ids": [
+   "sadarghat-buriganga",
+   "ahsan-manzil",
+   "lalbagh-fort",
+   "dhaka-university-curzon-hall",
+   "bangladesh-national-museum",
+   "jatiya-sangsad-bhaban",
+   "baitul-mukarram"
+  ],
+  "itinerary": [
+   {
+    "title": "1 — River, palace, mask lanes",
+    "detail": "Start at Sadarghat at 08:00 when the launch jetties are busiest, cross to Ahsan Manzil for the Nawab’s durbar halls, then walk old Dhaka’s kumortoli and the Armenian church lane. Afternoon at Islami Art Museum’s terracotta gallery, evening at Buriganga ghat for the ferry lights."
+   },
+   {
+    "title": "2 — Mughal fort to modernist capital",
+    "detail": "Lalbagh Fort at opening (the garden light is the reason), then Shahbagh: Curzon Hall, the university museum, the National Museum’s War of Liberation floor, and the Louis Kahn parliament complex at dusk from the outside. Baitul Mukarram for the last prayer light."
+   }
+  ],
+  "included": [
+   "One night in a central hotel with breakfast",
+   "Rickshaw and launch rides as listed",
+   "All monument and museum tickets, curator-led access at Ahsan Manzil",
+   "Professional city guide",
+   "Air-conditioned transfers"
+  ],
+  "excluded": [
+   "Friday closures: Lalbagh is open, museums are not - itinerary is reversed",
+   "Lunches (we book the biryani and pitha stops)",
+   "Tips",
+   "Insurance"
+  ],
+  "departure_dates": [
+   {
+    "date": "2026-11-07",
+    "seats": 6,
+    "price": 5200
+   },
+   {
+    "date": "2026-12-05",
+    "seats": 9,
+    "price": 5700
+   },
+   {
+    "date": "2027-02-13",
+    "seats": 12,
+    "price": 5200
+   }
+  ],
+  "image": "assets/images/destinations/sadarghat-buriganga.jpg"
+ },
+ {
+  "id": "mymensingh-2d",
+  "title": "Mymensingh: Zainul Abedin, Folk Art & the Jaintia Hills",
+  "title_bn": "ময়মনসিংহ: জয়নাল আবেদিন ও ফুলবাড়ি",
+  "division": "Mymensingh",
+  "badge": "Underrated north",
+  "duration_days": 3,
+  "nights": 2,
+  "price_min": 6900,
+  "price_max": 10800,
+  "rating": 4.6,
+  "reviews": 38,
+  "group_size": "2 - 16",
+  "languages": "Bangla, English",
+  "meals": "Breakfast + dinner",
+  "tags": [
+   "art",
+   "museum",
+   "village",
+   "hill"
+  ],
+  "featured": false,
+  "summary": "The famine sketches at the Zainul Abedin Museum, a Garo hill morning at China Clay Hills and Muktagachha’s zamindan houses, then Ratargul at dusk when the swimming logs start moving.",
+  "stops": [
+   "Mymensingh",
+   "Muktagachha",
+   "Dakurghat",
+   "Ratargul",
+   "Taherpur"
+  ],
+  "destination_ids": [
+   "mymensingh-museum-zainul",
+   "nazrul-academy-churalia",
+   "muktagachha-zamindan-bari",
+   "dakurghat-bangla-academy",
+   "china-clay-hills",
+   "ratargul-swamp-forest",
+   "talonga-zamindan-bari",
+   "shashi-lodge"
+  ],
+  "itinerary": [
+   {
+    "title": "1 — Mymensingh gallery walk",
+    "detail": "Zainul Abedin Museum and the Dakurghat Bangla Academy campus along the river, Nazrul Academy at Churalia, evening on the Brammaputra-administration ghat."
+   },
+   {
+    "title": "2 — Zamindan palaces and the Garo hills",
+    "detail": "Muktagachha’s Rajbari cluster and Tongoor, then the Garo belt: China Clay Hills, the Tantipara waterfall, and a night at Shashi Lodge in the pine and rubber plantations."
+   },
+   {
+    "title": "3 — Ratargul before the crowds",
+    "detail": "An early boat into the swamp forest at Godhagari ghat, where the trunks stand in black water and the only sound is the oar; the mist and the kingfishers are both gone by 09:30. Then Talonga zamindan bari and its tank, a stop for bamboo craft on the highway, and the drive back to Mymensingh, Dhaka or Sylhet by evening."
+   }
+  ],
+  "included": [
+   "Two nights with breakfast (one town hotel, one plantation lodge)",
+   "All museum and site entry",
+   "Boat at Ratargul with life jackets",
+   "Private vehicle",
+   "Bangla-speaking guide; English on request"
+  ],
+  "excluded": [
+   "Lunches and dinners not listed",
+   "Tips",
+   "Insurance"
+  ],
+  "departure_dates": [
+   {
+    "date": "2026-12-12",
+    "seats": 14,
+    "price": 6900
+   },
+   {
+    "date": "2027-03-06",
+    "seats": 14,
+    "price": 7400
+   }
+  ],
+  "image": "assets/images/destinations/mymensingh-museum-zainul.jpg"
+ },
+ {
+  "id": "coast-north-3d",
+  "title": "Kuakata & the Pashur Coast",
+  "title_bn": "কুয়াকাটা ও পশুর",
+  "division": "Barishal",
+  "badge": "Two sunrises, one beach",
+  "duration_days": 3,
+  "nights": 2,
+  "price_min": 6400,
+  "price_max": 9900,
+  "rating": 4.5,
+  "reviews": 71,
+  "group_size": "2 - 20",
+  "languages": "Bangla, English",
+  "meals": "Breakfast",
+  "tags": [
+   "beach",
+   "village",
+   "photography"
+  ],
+  "featured": true,
+  "summary": "A 32 km beach that faces both ways - sunrise and sunset on the same sand - with the Sonadia turtle-feeding grounds at low tide, Dubla char by boat, and the Pashur mouth where the delta lets go.",
+  "stops": [
+   "Khulna",
+   "Morrellganj",
+   "Kuakata",
+   "Pashur",
+   "Laboni"
+  ],
+  "destination_ids": [
+   "kuakata",
+   "kalapara-pashur-coast",
+   "laboni-sugandha",
+   "mongla-beach-port",
+   "lebur-char-fatrar-char"
+  ],
+  "itinerary": [
+   {
+    "title": "1 — Down the coast road",
+    "detail": "Khulna to Kuakata via Morrellganj and the Pashur mouth, stop at Kalapara for the beach-road crossing, sunset from the Rupakkari viewpoint."
+   },
+   {
+    "title": "2 — Chars, turtles and the market",
+    "detail": "Boat to Dubla and Sonadia at low tide (turtle-feeding grounds - keep 10 m from any animal, no torches, no flash), morning at the Kuakata fish market and the bamboo grove, afternoon at the Mangrove-belt nursery."
+   },
+   {
+    "title": "3 — Return via Laboni",
+    "detail": "Sunrise on the east end of the beach, then back through Laboni-Sugandha point for the picture everyone takes, drop at Khulna or Dhaka."
+   }
+  ],
+  "included": [
+   "Two nights beachside hotel, breakfast included",
+   "Boat hire for the char day",
+   "Guide and all listed transfers",
+   "Parking, fuel and driver allowance"
+  ],
+  "excluded": [
+   "Lunches and seafood",
+   "Jet-ski and quad rentals",
+   "Tips",
+   "Insurance"
+  ],
+  "departure_dates": [
+   {
+    "date": "2026-11-25",
+    "seats": 18,
+    "price": 6400
+   },
+   {
+    "date": "2027-01-27",
+    "seats": 18,
+    "price": 7200
+   }
+  ],
+  "image": "assets/images/destinations/kuakata.jpg"
+ }
+]

@@ -1,0 +1,91 @@
+/* ==========================================================================
+   GHORA GHURI - altair-theme-overrides.css
+   Layer 2: everything that adapts the Altair Tour & Travel reference to the
+   GHORA GHURI brand (colour swap, soft-corner look, Bangla typography,
+   RTL-safe tweaks, printable booking confirmation). Load AFTER main.css.
+   ========================================================================== */
+
+/* -- Brand retune: Altair uses a teal/petrol accent; GHORA GHURI shifts it to
+      delta green with sindoor red, and warms the neutrals toward paper sand. -- */
+:root{
+  --radius:12px;
+  --brand:#067a4f;
+  --brand-dark:#03492f;
+  --accent:#c8102e;
+  --sand:#f7f4ed;
+  --line:#e6e6e0;
+  --shadow:0 14px 38px rgba(4,73,47,.13);
+}
+
+/* Altair-style heading rhythm: large serif, tight leading, small caps kicker */
+.section-head h2{position:relative;padding-bottom:.55rem}
+.section-head h2::after{
+  content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:0;
+  width:64px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--brand),var(--gold));
+}
+
+/* Hero: Altair uses a dark veil + left-aligned copy; add the thin gold rule */
+.hero::before{
+  content:"";position:absolute;z-index:3;inset-inline-start:0;top:0;bottom:0;width:5px;
+  background:linear-gradient(180deg,var(--gold),var(--accent));
+}
+.hero__slide{filter:saturate(1.04) contrast(1.02)}
+.hero--compact::before{display:none}
+
+/* Quick-search: Altair floats the booking bar over the hero fold */
+.quicksearch .card{
+  border:0;border-top:4px solid var(--gold);box-shadow:0 22px 46px rgba(4,73,47,.20);
+  border-radius:var(--radius);
+}
+.quicksearch .field>label{color:var(--brand-dark)}
+
+/* Cards: softer, image-forward, gold price underline */
+.pkg,.dest{border:1px solid var(--line)}
+.pkg__foot{border-top:1px solid var(--line);position:relative}
+.price-tag{position:relative}
+.price-tag::after{content:"";display:block;width:38px;height:2px;background:var(--gold);margin-top:.2rem}
+.thumb__flag{background:linear-gradient(90deg,var(--brand-dark),var(--brand))}
+.thumb{background:
+  radial-gradient(120% 120% at 10% 0%,rgba(224,168,46,.35),transparent 60%),
+  linear-gradient(150deg,var(--brand-dark),var(--brand) 55%,#0a4f38)}
+
+/* Buttons: Altair's pill + slight lift */
+.btn{border-radius:999px;letter-spacing:.01em}
+.btn--primary{background:linear-gradient(120deg,var(--brand),#0a8f5c)}
+.btn--primary:hover{background:linear-gradient(120deg,var(--brand-dark),var(--brand))}
+
+/* Filters rail: sticky on desktop like Altair's sidebar search */
+@media(min-width:941px){
+  .filters{position:sticky;top:.9rem}
+}
+.filters__title{display:flex;align-items:center;justify-content:space-between;gap:.6rem}
+.filters__title h2{font-size:1.15rem;margin:0}
+
+/* Bangla typography: slightly larger base, roomier leading, Bengali face first */
+html[lang="bn"] body{
+  font-family:"Hind Siliguri","Noto Sans Bengali","Nirmala UI","Kalpurush",var(--sans);
+  font-size:17.5px;line-height:1.85;
+}
+html[lang="bn"] h1,html[lang="bn"] h2,html[lang="bn"] h3,html[lang="bn"] .brand__name,
+html[lang="bn"] .pkg__title,html[lang="bn"] .dest__title,html[lang="bn"] .quote p{
+  font-family:"Hind Siliguri","Noto Sans Bengali","Nirmala UI",var(--serif);
+  font-weight:600;line-height:1.5;
+}
+html[lang="bn"] .eyebrow,html[lang="bn"] .kv dt,html[lang="bn"] .field>label{letter-spacing:.02em}
+html[lang="bn"] .nav a,html[lang="bn"] .nav button.link{font-size:1rem;padding-block:.62rem}
+html[lang="bn"] .brand__tag{letter-spacing:.06em;font-size:.62rem}
+
+/* Print / downloadable booking confirmation sheet */
+.confirm-sheet{background:#fff;color:#000;padding:1.4rem 1.5rem;border:1px solid var(--line);border-radius:10px}
+.confirm-sheet h2{font-size:1.35rem;margin-bottom:.2rem}
+.confirm-sheet .rule{height:3px;background:linear-gradient(90deg,var(--brand),var(--gold),var(--accent));margin:.7rem 0 1rem;border-radius:2px}
+.confirm-sheet table{width:100%;border-collapse:collapse;margin-bottom:1rem}
+.confirm-sheet th,.confirm-sheet td{border:1px solid #d5d5d0;padding:.45rem .55rem;text-align:start;font-size:.9rem}
+.confirm-sheet th{background:#f2f2ee;width:38%}
+.confirm-sheet .footnote{font-size:.76rem;color:#444;border-top:1px dashed #bbb;padding-top:.6rem}
+@media print{
+  body{background:#fff}
+  .confirm-sheet{border:0;border-radius:0;padding:0;max-width:100%}
+  .confirm-sheet,.confirm-sheet *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .no-print-bar{display:none!important}
+}

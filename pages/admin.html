@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en" data-root="../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin - GHORA GHURI content manager</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Preview admin panel for the GHORA GHURI destination and package data.">
+<link rel="stylesheet" href="../assets/css/main.css">
+<link rel="stylesheet" href="../assets/css/altair-theme-overrides.css">
+<link rel="icon" href="../assets/favicon.svg">
+</head>
+<body class="admin-body">
+<header class="topbar" style="background:#0d1b16">
+  <div class="container row row--between" style="align-items:center">
+    <a class="brand" href="../index.html" style="color:#fff">
+      <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><path d="M4 24c3-9 8-13 13-13 3 0 5 1 7 3l-2 3-3-1c-4 0-7 3-9 8z" fill="#e0a82e"/><circle cx="18" cy="12" r="1.6" fill="#0d1b16"/></svg>
+      <b>GHORA GHURI</b> <span class="small muted" style="color:#9dc0b1">content manager</span>
+    </a>
+    <div class="row" style="gap:.6rem">
+      <a class="btn btn--ghost btn--sm" href="../index.html" style="color:#e7f1ec;border-color:#2c4a3d">View site</a>
+      <button class="btn btn--ghost btn--sm" id="js-logout" style="color:#e7f1ec;border-color:#2c4a3d">Sign out</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- --------------------------------------------------- login gate -->
+  <section class="container section" id="js-login">
+    <div class="grid grid--sidebar" style="align-items:start">
+      <form class="card card--pad" id="js-login-form" style="max-width:520px">
+        <h2 style="margin-top:0">Sign in</h2>
+        <p class="small muted">This panel edits the destination and package data in your browser and can export the JSON the
+        site reads. On a static host it is a preview convenience, <b>not a security boundary</b> - see the README before
+        putting real data here.</p>
+        <div class="field"><label for="lg-user">Username</label><input id="lg-user" type="text" autocomplete="username" required></div>
+        <div class="field"><label for="lg-pass">Passcode</label><input id="lg-pass" type="password" autocomplete="current-password" required></div>
+        <p class="error" id="lg-error" role="alert"></p>
+        <div class="row" style="gap:.6rem;flex-wrap:wrap">
+          <button class="btn btn--primary" type="submit">Enter</button>
+          <button class="btn btn--ghost" type="button" id="js-fill-demo">Use demo credentials</button>
+        </div>
+        <p class="hint mb-0" id="js-demo-warning" hidden>Demo passcode in use (<code>ghora-admin</code> / <code>ChangeMe!2026</code>).
+        Replace it under Settings before this build goes anywhere public.</p>
+      </form>
+      <aside class="card card--pad">
+        <h3 style="margin-top:0">What lives here</h3>
+        <ul class="list-check small mb-0">
+          <li>142 destination records and 14 packages, editable in place</li>
+          <li>Booking requests submitted from the site (per-device in preview mode)</li>
+          <li>Export to <code>data/destinations.json</code> / <code>data/packages.json</code> shapes</li>
+          <li>Import a previously exported bundle</li>
+          <li>Server mode toggle for the included Node API stub</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- --------------------------------------------------- app -->
+  <section class="container section" id="js-admin-app" hidden>
+    <div class="row row--between" style="align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1rem">
+      <h1 style="margin:0;font-size:1.7rem">Content manager</h1>
+      <div class="row" style="gap:.6rem;flex-wrap:wrap">
+        <label class="check small"><input type="checkbox" id="js-server-mode"> Server mode (PUT to API stub)</label>
+        <button class="btn btn--ghost btn--sm" id="js-export">Export bundle JSON</button>
+        <button class="btn btn--ghost btn--sm" id="js-export-dest">Export destinations.json</button>
+        <label class="btn btn--ghost btn--sm" for="js-import-file">Import JSON<input type="file" id="js-import-file" accept="application/json" hidden></label>
+        <button class="btn btn--ghost btn--sm" id="js-reset">Discard local edits</button>
+      </div>
+    </div>
+
+    <div class="grid grid--4" id="js-stats" style="margin-bottom:1.4rem"></div>
+
+    <div class="tabs" role="tablist">
+      <button role="tab" class="tab" data-tab="editor" aria-selected="true">Editor</button>
+      <button role="tab" class="tab" data-tab="bookings" aria-selected="false">Booking requests</button>
+      <button role="tab" class="tab" data-tab="overview" aria-selected="false">Coverage</button>
+      <button role="tab" class="tab" data-tab="settings" aria-selected="false">Settings</button>
+    </div>
+
+    <div data-panel="editor">
+      <div class="card card--pad" style="margin-bottom:1.2rem">
+        <div class="row" style="gap:.8rem;align-items:flex-end;flex-wrap:wrap">
+          <div class="field" style="min-width:190px;margin:0"><label for="js-collection">Collection</label>
+            <select id="js-collection"><option value="destinations">Destinations</option><option value="packages">Packages</option></select></div>
+          <div class="field" style="flex:1;min-width:220px;margin:0"><label for="js-table-search">Filter</label>
+            <input id="js-table-search" type="search" placeholder="name, division or district"></div>
+          <button class="btn btn--primary btn--sm" id="js-new-btn" type="button">New record</button>
+        </div>
+      </div>
+      <div class="card card--pad" id="js-table" style="margin-bottom:1.2rem"></div>
+      <div class="card card--pad" id="js-editor">
+        <h2 style="margin-top:0" id="js-editor-title">New destination</h2>
+        <form id="js-edit-form">
+          <div class="grid grid--2" id="js-form"></div>
+          <div class="row" style="gap:.6rem;margin-top:1rem;flex-wrap:wrap">
+            <button class="btn btn--primary" type="submit">Save record</button>
+            <button class="btn btn--ghost" type="button" id="js-cancel-btn">Cancel edit</button>
+            <button class="btn btn--ghost" type="button" id="js-delete-btn" hidden>Delete record</button>
+            <span class="hint mb-0">Saved to <code>localStorage</code>; use Export to write the JSON files.</span>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div data-panel="bookings" hidden>
+      <div class="card card--pad">
+        <h2 style="margin-top:0">Requests from this browser</h2>
+        <p class="small muted">In preview mode, only requests made from this device appear here. With server mode on, the
+        stub API returns every request stored on the server.</p>
+        <div id="js-recent-bookings"></div>
+      </div>
+    </div>
+
+    <div data-panel="overview" hidden>
+      <div class="card card--pad">
+        <h2 style="margin-top:0">Destination coverage per division</h2>
+        <div id="js-chart"></div>
+      </div>
+      <div class="grid grid--2" style="margin-top:1.2rem">
+        <div class="card card--pad"><h3 style="margin-top:0">Content checklist</h3>
+          <ul class="list-check small mb-0">
+            <li>Coordinates within Bangladesh bounds (20.5&ndash;26.7&nbsp;N, 88.0&ndash;92.7&nbsp;E)</li>
+            <li>Best-time window and duration filled for every record</li>
+            <li>Price floor reviewed each season (Oct &amp; Apr)</li>
+            <li>Long description 200&ndash;500 words, no supplier marketing copy</li>
+            <li>Bangla name present for records shown on the Bangla site</li>
+            <li>Photo licence recorded in <code>ATTRIBUTION.md</code></li>
+          </ul></div>
+        <div class="card card--pad"><h3 style="margin-top:0">Data files this panel writes</h3>
+          <table class="table small"><tbody>
+            <tr><th scope="row">data/destinations.json</th><td>142 records, read by search, maps, home widgets, booking dropdown</td></tr>
+            <tr><th scope="row">data/packages.json</th><td>14 packages, read by tour pages and booking options</td></tr>
+            <tr><th scope="row">data/blog.json</th><td>journal posts (build-time file, edited in source)</td></tr>
+            <tr><th scope="row">data/translations/*.json</th><td>EN/BN UI strings, generated at build time</td></tr>
+          </tbody></table></div>
+      </div>
+    </div>
+
+    <div data-panel="settings" hidden>
+      <div class="grid grid--2">
+        <div class="card card--pad">
+          <h3 style="margin-top:0">Change passcode (this browser)</h3>
+          <form id="js-cred-form">
+            <div class="field"><label for="cr-user">Username</label><input id="cr-user" type="text" value="ghora-admin" required></div>
+            <div class="field"><label for="cr-pass">New passcode</label><input id="cr-pass" type="password" required minlength="10" placeholder="at least 10 characters"></div>
+            <p class="hint">Hashed with SHA-256 in the browser. Production stores the credential server-side in
+            <code>ADMIN_USER</code> / <code>ADMIN_HASH</code> - see <code>server-stubs/</code>.</p>
+            <button class="btn btn--primary" type="submit">Update</button>
+          </form>
+        </div>
+        <div class="card card--pad">
+          <h3 style="margin-top:0">Integrations to fill in</h3>
+          <table class="table small"><tbody>
+            <tr><th scope="row">Google Maps</th><td><code>GG.cfg.googleMapsKey</code> - set to use the Map Tiles API instead of Leaflet</td></tr>
+            <tr><th scope="row">reCAPTCHA v3</th><td><code>GG.cfg.recaptchaSiteKey</code> + server secret for the score check</td></tr>
+            <tr><th scope="row">Formspree</th><td><code>GG.cfg.formspreeEndpoint</code> for static-host form delivery</td></tr>
+            <tr><th scope="row">GA4</th><td><code>GG.cfg.gaMeasurementId</code>, consent-gated</td></tr>
+            <tr><th scope="row">Meta pixel</th><td><code>GG.cfg.fbPixelId</code>, consent-gated</td></tr>
+            <tr><th scope="row">Payments</th><td>SSLCommerz / Stripe endpoint in <code>server-stubs/</code>; not enabled here</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" style="margin-top:3rem">
+  <div class="container small" style="padding-block:1.2rem">GHORA GHURI content manager - preview build. Edits stay in this browser unless server mode is enabled.</div>
+</footer>
+
+<script src="../assets/js/lite-data.js" defer></script>
+<script src="../assets/js/site-data.js" defer></script>
+<script src="../assets/js/store.js" defer></script>
+<script src="../assets/js/main.js" defer></script>
+<script src="../assets/js/admin.js" defer></script>
+</body>
+</html>
