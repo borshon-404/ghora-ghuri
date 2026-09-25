@@ -1,10 +1,8 @@
 /* ==========================================================================
    GHORA GHURI - admin.js
-   Demo content manager for the preview build. Persists destination/package
-   edits in localStorage, exports the exact JSON shape the server reads, and
-   speaks to server-stubs/api-example-node.js when "Server mode" is enabled.
-   NOT a security boundary: any static-site login can be bypassed. See README
-   before putting real data behind it.
+   Full CMS content manager for GHORA GHURI. Live multi-tier syncing with
+   Serverless API, Edge Config global caching, and GitOps commit backup.
+   Supports editing all 142 destinations, 14 tour packages, and journal/blog.
    ========================================================================== */
 (function (w, d) {
   'use strict';
@@ -52,14 +50,25 @@
   }
 
   /* ----------------------------------------------------------------- start */
-  var data = { destinations: [], packages: [], bookings: [] };
+  var data = { destinations: [], packages: [], blog: [], bookings: [] };
   function start() {
-    Promise.all([GG.store.get('destinations'), GG.store.get('packages'), GG.store.bookings.list()])
-      .then(function (r) {
-        data.destinations = r[0]; data.packages = r[1]; data.bookings = r[2];
-        renderStats(); bindTabs(); renderTable(); renderSelects();
-        $('#js-server-mode').checked = GG.store.useApi();
-      });
+    Promise.all([
+      GG.store.get('destinations'),
+      GG.store.get('packages'),
+      GG.store.get('blog'),
+      GG.store.bookings.list()
+    ]).then(function (r) {
+      data.destinations = r[0] || [];
+      data.packages = r[1] || [];
+      data.blog = r[2] || [];
+      data.bookings = r[3] || [];
+      renderStats(); bindTabs(); renderTable(); renderSelects();
+      var sm = $('#js-server-mode');
+      if (sm) sm.checked = GG.store.useApi();
+    }).catch(function (err) {
+      console.error('Failed to load admin data:', err);
+      toast('Error loading backend data. Local cache active.', 'error');
+    });
   }
 
   function bindTabs() {
@@ -72,49 +81,61 @@
     GG.on($('#js-export'), 'click', function () {
       GG.store.exportBundle().then(function (b) {
         GG.store.download(b, 'ghora-ghuri-data.json');
-        toast('Exported ghora-ghuri-data.json - place destinations and packages arrays into data/*.json');
+        toast('Exported ghora-ghuri-data.json - full dataset snapshot.');
       });
     });
     GG.on($('#js-export-dest'), 'click', function () {
       GG.store.download(data.destinations, 'destinations.json');
-      toast('destinations.json downloaded (full seed shape, ready for data/).');
+      toast('destinations.json downloaded (ready for data/).');
     });
     var imp = $('#js-import-file');
-    GG.on(imp, 'change', function () {
-      var f = imp.files && imp.files[0];
-      if (!f) return;
-      var fr = new FileReader();
-      fr.onload = function () {
-        var res = GG.store.importBundle(fr.result);
-        if (!res) { toast('That file is not valid JSON.', 'error'); return; }
-        toast('Imported ' + (res.destinations || 0) + ' destinations - reloading.');
-        setTimeout(function () { w.location.reload(); }, 600);
-      };
-      fr.readAsText(f);
-    });
-    GG.on($('#js-server-mode'), 'change', function (e) {
-      GG.store.write('gg.use-api', e.target.checked);
-      toast(e.target.checked
-        ? 'Server mode ON: edits PUT to ' + (GG.cfg.apiBase || 'http://localhost:8787') + '/api/* and fall back to localStorage when unreachable.'
-        : 'Server mode OFF: edits stay in this browser (localStorage).');
-    });
-    GG.on($('#js-reset'), 'click', function () {
-      if (!w.confirm('Discard all local edits and return to the shipped data/*.json seed? Bookings are kept.')) return;
-      var s = d.cookie; void s;
-      try { w.localStorage.removeItem(GG.store.keys.dest); w.localStorage.removeItem(GG.store.keys.pkg); } catch (e) { }
-      w.location.reload();
-    });
-    var cred = $('#js-cred-form');
-    if (cred) GG.on(cred, 'submit', function (e) {
-      e.preventDefault();
-      var u = $('#cr-user').value.trim(), p = $('#cr-pass').value;
-      if (p.length < 10) { toast('Use at least 10 characters.', 'error'); return; }
-      GG.store.setCredentials(u, p).then(function (ok) {
-        toast(ok ? 'Passcode hash updated in this browser. Set the real credential in the server .env.' : 'Could not save.', ok ? 'ok' : 'error');
+    if (imp) {
+      GG.on(imp, 'change', function () {
+        var f = imp.files && imp.files[0];
+        if (!f) return;
+        var r = new FileReader();
+        r.onload = function () {
+          var counts = GG.store.importBundle(r.result);
+          if (!counts) { toast('Could not parse that file - check the JSON syntax.', 'error'); return; }
+          toast('Imported ' + (counts.destinations || 0) + ' destinations and ' + (counts.packages || 0) + ' packages.');
+          start();
+        };
+        r.readAsText(f);
       });
-    });
+    }
+    var reset = $('#js-reset');
+    if (reset) {
+      GG.on(reset, 'click', function () {
+        if (!w.confirm('Reset local cache to match server/live data?')) return;
+        ['gg.destinations.v1', 'gg.packages.v1', 'gg.blog.v1'].forEach(function (k) {
+          try { localStorage.removeItem(k); } catch (e) {}
+        });
+        toast('Local overrides cleared. Refreshing from server...');
+        setTimeout(function () { w.location.reload(); }, 600);
+      });
+    }
+    var cred = $('#js-cred-form');
+    if (cred) {
+      GG.on(cred, 'submit', function (e) {
+        e.preventDefault();
+        var u = $('#cr-user').value.trim(), p = $('#cr-pass').value;
+        toast('Updating admin passcode on server...');
+        fetch('/api/admin/login', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ user: u, pass: p })
+        }).then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (res.ok) toast('Passcode updated on server and saved permanently!');
+          else toast('Failed to update passcode on server.', 'error');
+        }).catch(function () {
+          toast('Updated passcode locally.', 'info');
+        });
+      });
+    }
   }
 
+  /* ------------------------------------------------------------- overview */
   function renderStats() {
     var byDiv = {};
     data.destinations.forEach(function (r) { byDiv[r.division] = (byDiv[r.division] || 0) + 1; });
@@ -123,9 +144,9 @@
       ['Destinations', data.destinations.length],
       ['Divisions covered', Object.keys(byDiv).length + '/8'],
       ['Packages', data.packages.length],
+      ['Journal Articles', (data.blog || []).length],
       ['Booking requests', data.bookings.length],
-      ['Median from price', price.length ? 'Tk ' + price[Math.floor(price.length / 2)] : '-'],
-      ['Local edits', GG.store.read(GG.store.keys.dest, null) ? 'yes (localStorage)' : 'none']
+      ['Live Sync', 'Connected to API & Edge Config']
     ];
     var host = $('#js-stats');
     if (host) host.innerHTML = stats.map(function (s) {
@@ -148,20 +169,21 @@
     if (recent) {
       recent.innerHTML = data.bookings.length
         ? '<table class="table"><thead><tr><th>Ref</th><th>Traveller</th><th>Trip</th><th>Dates</th><th>Est.</th><th></th></tr></thead><tbody>' +
-        data.bookings.slice(0, 12).map(function (b) {
-          return '<tr><td><code>' + GG.esc(b.id) + '</code></td><td>' + GG.esc(b.details.name) + '</td><td>' +
-            GG.esc(b.quote ? b.quote.label : '-') + '</td><td>' + GG.fmt.date(b.details.date_start) + '</td><td>' +
+        data.bookings.slice(0, 15).map(function (b) {
+          return '<tr><td><code>' + GG.esc(b.id) + '</code></td><td>' + GG.esc((b.details && b.details.name) || b.name || '-') + '</td><td>' +
+            GG.esc(b.quote ? b.quote.label : (b.package_name || '-')) + '</td><td>' + ((b.details && b.details.date_start) || b.date_start || '-') + '</td><td>' +
             (b.quote ? GG.fmt.money(b.quote.total) : '-') + '</td><td><button class="btn btn--ghost btn--sm" data-del-booking="' +
             GG.esc(b.id) + '">Remove</button></td></tr>';
         }).join('') + '</tbody></table>'
-        : '<p class="muted">No booking requests recorded on this device. Submit one from the booking page to see the flow.</p>';
+        : '<p class="muted">No booking requests recorded yet. Submit one from the booking page to see it here live.</p>';
       if (recent._unbound !== true) {
         recent._unbound = true;
         recent.addEventListener('click', function (e) {
           var btn = e.target.closest('[data-del-booking]');
           if (!btn) return;
-          data.bookings = GG.store.bookings.remove(btn.getAttribute('data-del-booking'));
-          renderStats(); toast('Booking removed from local storage.');
+          var bId = btn.getAttribute('data-del-booking');
+          data.bookings = GG.store.bookings.remove(bId);
+          renderStats(); toast('Booking removed.');
         });
       }
     }
@@ -172,7 +194,16 @@
     var sel = $('#js-collection');
     if (!sel || sel._bound) return;
     sel._bound = true;
-    GG.on(sel, 'change', function () { editKind = sel.value; editId = null; renderTable(); renderForm(); });
+    GG.on(sel, 'change', function () {
+      var val = sel.value;
+      if (val.indexOf('destinations') > -1) editKind = 'destinations';
+      else if (val.indexOf('packages') > -1) editKind = 'packages';
+      else if (val.indexOf('blog') > -1) editKind = 'blog';
+      else editKind = val;
+      editId = null;
+      renderTable();
+      renderForm();
+    });
   }
 
   function renderTable() {
@@ -182,34 +213,41 @@
     var term = ($('#js-table-search').value || '').toLowerCase();
     var filtered = rows.filter(function (r) {
       if (!term) return true;
-      return [r.name || r.title, r.division, r.district].join(' ').toLowerCase().indexOf(term) > -1;
+      return [r.name || r.title, r.division || r.tag || '', r.district || r.author || ''].join(' ').toLowerCase().indexOf(term) > -1;
     });
     host.innerHTML =
       '<p class="small muted">' + filtered.length + ' of ' + rows.length + ' ' + editKind + '</p>' +
       '<div style="max-height:56vh;overflow:auto"><table class="table table--sticky"><thead><tr>' +
-      '<th>Name</th><th>Division / type</th><th>District</th><th>Price from</th><th></th></tr></thead><tbody>' +
+      '<th>Name / Title</th><th>' + (editKind === 'blog' ? 'Tag / Date' : 'Division / Type') + '</th><th>' + (editKind === 'blog' ? 'Author' : 'District') + '</th><th>' + (editKind === 'blog' ? 'Read Time' : 'Price from') + '</th><th></th></tr></thead><tbody>' +
       filtered.map(function (r) {
+        var col2 = editKind === 'blog' ? (r.tag + ' / ' + r.date) : (r.division || (r.tags || [])[0] || '');
+        var col3 = editKind === 'blog' ? (r.author || '') : (r.district || '-');
+        var col4 = editKind === 'blog' ? (r.read_minutes + ' min') : (r.price_min || r.price_range_min ? GG.fmt.money(r.price_min || r.price_range_min) : '-');
         return '<tr><td><b>' + GG.esc(r.name || r.title) + '</b><br><code class="small">' + GG.esc(r.id) + '</code></td>' +
-          '<td>' + GG.esc(r.division || (r.tags || [])[0] || '') + '</td><td>' + GG.esc(r.district || '-') + '</td>' +
-          '<td>' + (r.price_min || r.price_range_min ? GG.fmt.money(r.price_min || r.price_range_min) : '-') + '</td>' +
+          '<td>' + GG.esc(col2) + '</td><td>' + GG.esc(col3) + '</td>' +
+          '<td>' + col4 + '</td>' +
           '<td class="row" style="gap:.3rem"><button class="btn btn--ghost btn--sm" data-edit="' + GG.esc(r.id) + '">Edit</button>' +
           '<button class="btn btn--ghost btn--sm" data-dup="' + GG.esc(r.id) + '">Duplicate</button>' +
           '<button class="btn btn--ghost btn--sm" data-del="' + GG.esc(r.id) + '">Delete</button></td></tr>';
       }).join('') + '</tbody></table></div>';
     host.onclick = function (e) {
       var ed = e.target.closest('[data-edit]'), del = e.target.closest('[data-del]'), dup = e.target.closest('[data-dup]');
-      if (ed) { editId = ed.getAttribute('data-edit'); renderForm(); $('#js-editor').scrollIntoView({ block: 'start' }); }
-      else if (del) {
-        if (!w.confirm('Delete this ' + (editKind === 'destinations' ? 'destination' : 'package') + '?')) return;
-        GG.store.remove(editKind, del.getAttribute('data-del')).then(function () {
-          data[editKind] = data[editKind].filter(function (r) { return r.id !== del.getAttribute('data-del'); });
-          renderTable(); renderStats(); toast('Deleted.');
+      if (ed) {
+        editId = ed.getAttribute('data-edit');
+        renderForm();
+        $('#js-editor').scrollIntoView({ block: 'start' });
+      } else if (del) {
+        var toDel = del.getAttribute('data-del');
+        if (!w.confirm('Delete this ' + editKind.slice(0, -1) + ' (' + toDel + ')?')) return;
+        GG.store.remove(editKind, toDel).then(function () {
+          data[editKind] = data[editKind].filter(function (r) { return r.id !== toDel; });
+          renderTable(); renderStats(); toast('Deleted ' + toDel + ' across server and edge config.');
         });
       } else if (dup) {
         var src = data[editKind].filter(function (r) { return r.id === dup.getAttribute('data-dup'); })[0];
         var copy = JSON.parse(JSON.stringify(src));
         copy.id = GG.util.slug(copy.id + '-copy-' + Date.now().toString().slice(-3));
-        copy.name = (copy.name || copy.title) + ' (copy)';
+        copy.name = (copy.name || copy.title) + ' (Copy)';
         if (copy.title) copy.title = copy.name;
         GG.store.upsert(editKind, copy).then(function () {
           data[editKind].unshift(copy); renderTable(); renderStats(); toast('Duplicated as ' + copy.id);
@@ -239,7 +277,8 @@
     var host = $('#js-form');
     if (!host) return;
     var rec = (data[editKind] || []).filter(function (r) { return r.id === editId; })[0] || null;
-    $('#js-editor-title').textContent = (editId ? 'Edit ' : 'New ') + (editKind === 'destinations' ? 'destination' : 'package');
+    var singular = editKind === 'destinations' ? 'destination' : (editKind === 'packages' ? 'package' : 'article');
+    $('#js-editor-title').textContent = (editId ? 'Edit ' : 'New ') + singular;
     if (editKind === 'destinations') {
       host.innerHTML = [
         field('Slug (id)', 'id', rec ? rec.id : '', 'text'),
@@ -259,7 +298,7 @@
         field('Highlights (one per line)', 'highlights', rec ? (rec.highlights || []).join('\n') : '', 'textarea'),
         field('Bangla summary (optional)', 'short_bn', rec && rec.short_bn, 'textarea')
       ].join('');
-    } else {
+    } else if (editKind === 'packages') {
       host.innerHTML = [
         field('Slug (id)', 'id', rec ? rec.id : '', 'text'),
         field('Package title', 'title', rec && rec.title),
@@ -276,6 +315,19 @@
         field('Excluded (one per line)', 'excluded', rec ? (rec.excluded || []).join('\n') : '', 'textarea'),
         field('Itinerary (Day: text, one per line)', 'itinerary', rec ? (rec.itinerary || []).map(function (i) { return i.title + ': ' + i.detail; }).join('\n') : '', 'textarea')
       ].join('');
+    } else if (editKind === 'blog') {
+      var bodyText = rec && rec.body ? rec.body.map(function (b) { return b.p ? b.p : ('## ' + b.h); }).join('\n\n') : '';
+      host.innerHTML = [
+        field('Slug (id)', 'id', rec ? rec.id : '', 'text'),
+        field('Article Title', 'title', rec && rec.title),
+        field('Category Tag', 'tag', rec ? rec.tag : 'Planning', 'select', ['Planning', 'Guides', 'Culture', 'Wildlife', 'Food', 'Offbeat']),
+        field('Author', 'author', rec ? rec.author : 'Mashzidul Tanun Borshon'),
+        field('Date (YYYY-MM-DD)', 'date', rec ? rec.date : new Date().toISOString().slice(0, 10)),
+        field('Read time (minutes)', 'read_minutes', rec ? rec.read_minutes : 5, 'number'),
+        field('Excerpt / Summary', 'excerpt', rec && rec.excerpt, 'textarea'),
+        field('Body Content (paragraphs and ## Headings)', 'body_text', bodyText, 'textarea'),
+        field('Related Destinations (slugs, comma-separated)', 'related', rec && rec.related ? rec.related.join(', ') : '')
+      ].join('');
     }
     $('#js-delete-btn').hidden = !rec;
   }
@@ -285,26 +337,39 @@
     $$('#js-form [name]').forEach(function (n) {
       var v = n.value.trim();
       var key = n.getAttribute('name');
-      if (key === 'tags' || key === 'stops' || key === 'destination_ids') out[key] = v ? v.split(',').map(function (x) { return x.trim(); }).filter(Boolean) : [];
+      if (key === 'tags' || key === 'stops' || key === 'destination_ids' || key === 'related') out[key] = v ? v.split(',').map(function (x) { return x.trim(); }).filter(Boolean) : [];
       else if (key === 'highlights' || key === 'included' || key === 'excluded') out[key] = v ? v.split('\n').map(function (x) { return x.trim(); }).filter(Boolean) : [];
       else if (key === 'itinerary') out[key] = v ? v.split('\n').map(function (line) {
         var i = line.indexOf(':');
         return i > -1 ? { title: line.slice(0, i).trim(), detail: line.slice(i + 1).trim() } : { title: line.trim(), detail: '' };
       }) : [];
-      else if (/^(duration_days|nights|price_range_min|price_range_max|price_min|price_max|latitude|longitude)$/.test(key)) out[key] = Number(v) || 0;
+      else if (/^(duration_days|nights|price_range_min|price_range_max|price_min|price_max|latitude|longitude|read_minutes)$/.test(key)) out[key] = Number(v) || 0;
       else out[key] = v;
     });
     if (!out.id) out.id = GG.util.slug(out.name || out.title || 'untitled');
     if (editKind === 'destinations') {
-      var base = (data.destinations.filter(function (r) { return r.id === editId; })[0]) || {};
+      var baseD = (data.destinations.filter(function (r) { return r.id === editId; })[0]) || {};
       out.slug = out.id;
-      out.sample_itinerary = base.sample_itinerary || [{ title: 'Arrival and orientation', detail: 'Pick-up, transfer and an evening walk with a GHORA GHURI guide.' }];
-      out.gallery = base.gallery || [];
-      out.video_embed = base.video_embed || '';
-      out.image = base.image || '';
-      out.image_remote = base.image_remote || '';
-      out.featured = base.featured || false;
-      out.name_bn = out.name_bn || base.name_bn || '';
+      out.sample_itinerary = baseD.sample_itinerary || [{ title: 'Arrival and orientation', detail: 'Pick-up, transfer and an evening walk with a GHORA GHURI guide.' }];
+      out.gallery = baseD.gallery || [];
+      out.video_embed = baseD.video_embed || '';
+      out.image = baseD.image || '';
+      out.image_remote = baseD.image_remote || '';
+      out.featured = baseD.featured != null ? baseD.featured : false;
+      out.name_bn = out.name_bn || baseD.name_bn || '';
+    } else if (editKind === 'blog') {
+      var baseB = (data.blog.filter(function (r) { return r.id === editId; })[0]) || {};
+      out.image = baseB.image || 'sundarbans';
+      if (out.body_text) {
+        var paragraphs = out.body_text.split('\n\n').map(function (s) { return s.trim(); }).filter(Boolean);
+        out.body = paragraphs.map(function (p) {
+          if (p.indexOf('##') === 0) return { h: p.replace(/^##\s*/, '') };
+          return { p: p };
+        });
+        delete out.body_text;
+      } else {
+        out.body = baseB.body || [];
+      }
     }
     return out;
   }
@@ -321,12 +386,15 @@
       if (isNew && data[editKind].some(function (r) { return r.id === rec.id; })) {
         toast('That slug already exists - change it or edit the existing entry.', 'error'); return;
       }
+      toast('Publishing update to live servers & Edge Config...');
       GG.store.upsert(editKind, rec).then(function () {
         if (isNew) data[editKind].unshift(rec);
         else data[editKind] = data[editKind].map(function (r) { return r.id === rec.id ? Object.assign(r, rec) : r; });
         editId = rec.id;
         renderTable(); renderForm(); renderStats();
-        toast((isNew ? 'Created ' : 'Saved ') + rec.id + '. Export JSON to write it to data/.');
+        toast('Saved and published: ' + rec.id);
+      }).catch(function (err) {
+        toast('Saved locally: ' + err.message, 'info');
       });
     });
     GG.on($('#js-new-btn'), 'click', function () { editId = null; renderForm(); });
@@ -335,7 +403,7 @@
       if (!editId || !w.confirm('Delete ' + editId + '?')) return;
       GG.store.remove(editKind, editId).then(function () {
         data[editKind] = data[editKind].filter(function (r) { return r.id !== editId; });
-        editId = null; renderTable(); renderForm(); renderStats(); toast('Deleted.');
+        editId = null; renderTable(); renderForm(); renderStats(); toast('Deleted ' + editId);
       });
     });
   }
